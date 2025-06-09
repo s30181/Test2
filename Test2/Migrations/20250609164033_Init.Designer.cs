@@ -12,8 +12,8 @@ using Test2.Data;
 namespace Test2.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250609162219_AddData")]
-    partial class AddData
+    [Migration("20250609164033_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Test2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Tutorial11.Models.Map", b =>
+            modelBuilder.Entity("Test2.Models.Map", b =>
                 {
                     b.Property<int>("MapId")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace Test2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Match", b =>
+            modelBuilder.Entity("Test2.Models.Match", b =>
                 {
                     b.Property<int>("MatchId")
                         .ValueGeneratedOnAdd()
@@ -103,7 +103,7 @@ namespace Test2.Migrations
                             MatchId = 1,
                             BestRating = 1.25m,
                             MapId = 1,
-                            MatchDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MatchDate = new DateTime(2025, 7, 2, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 16,
                             Team2Score = 12,
                             TournamentId = 1
@@ -113,14 +113,14 @@ namespace Test2.Migrations
                             MatchId = 2,
                             BestRating = 1.1m,
                             MapId = 2,
-                            MatchDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            MatchDate = new DateTime(2025, 7, 3, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             Team1Score = 10,
                             Team2Score = 16,
                             TournamentId = 1
                         });
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Player", b =>
+            modelBuilder.Entity("Test2.Models.Player", b =>
                 {
                     b.Property<int>("PlayerId")
                         .ValueGeneratedOnAdd()
@@ -155,7 +155,7 @@ namespace Test2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.PlayerMatch", b =>
+            modelBuilder.Entity("Test2.Models.PlayerMatch", b =>
                 {
                     b.Property<int>("MatchId")
                         .HasColumnType("int");
@@ -193,7 +193,7 @@ namespace Test2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Tournament", b =>
+            modelBuilder.Entity("Test2.Models.Tournament", b =>
                 {
                     b.Property<int>("TournamentId")
                         .ValueGeneratedOnAdd()
@@ -226,15 +226,15 @@ namespace Test2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Match", b =>
+            modelBuilder.Entity("Test2.Models.Match", b =>
                 {
-                    b.HasOne("Tutorial11.Models.Map", "Map")
+                    b.HasOne("Test2.Models.Map", "Map")
                         .WithMany("Matches")
                         .HasForeignKey("MapId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tutorial11.Models.Tournament", "Tournament")
+                    b.HasOne("Test2.Models.Tournament", "Tournament")
                         .WithMany("Matches")
                         .HasForeignKey("TournamentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -245,15 +245,15 @@ namespace Test2.Migrations
                     b.Navigation("Tournament");
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.PlayerMatch", b =>
+            modelBuilder.Entity("Test2.Models.PlayerMatch", b =>
                 {
-                    b.HasOne("Tutorial11.Models.Match", "Match")
+                    b.HasOne("Test2.Models.Match", "Match")
                         .WithMany("PlayerMatches")
                         .HasForeignKey("MatchId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tutorial11.Models.Player", "Player")
+                    b.HasOne("Test2.Models.Player", "Player")
                         .WithMany("PlayerMatches")
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -264,22 +264,22 @@ namespace Test2.Migrations
                     b.Navigation("Player");
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Map", b =>
+            modelBuilder.Entity("Test2.Models.Map", b =>
                 {
                     b.Navigation("Matches");
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Match", b =>
+            modelBuilder.Entity("Test2.Models.Match", b =>
                 {
                     b.Navigation("PlayerMatches");
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Player", b =>
+            modelBuilder.Entity("Test2.Models.Player", b =>
                 {
                     b.Navigation("PlayerMatches");
                 });
 
-            modelBuilder.Entity("Tutorial11.Models.Tournament", b =>
+            modelBuilder.Entity("Test2.Models.Tournament", b =>
                 {
                     b.Navigation("Matches");
                 });

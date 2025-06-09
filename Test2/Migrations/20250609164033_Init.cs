@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Test2.Migrations
 {
     /// <inheritdoc />
@@ -109,6 +111,43 @@ namespace Test2.Migrations
                         principalTable: "Players",
                         principalColumn: "PlayerId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Maps",
+                columns: new[] { "MapId", "Name", "Type" },
+                values: new object[,]
+                {
+                    { 1, "Inferno", "Map type" },
+                    { 2, "Mirage", "Map type" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Players",
+                columns: new[] { "PlayerId", "BirthDate", "FirstName", "LastName" },
+                values: new object[] { 1, new DateTime(2005, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "John", "Smith" });
+
+            migrationBuilder.InsertData(
+                table: "Tournaments",
+                columns: new[] { "TournamentId", "EndDate", "Name", "StartDate" },
+                values: new object[] { 1, new DateTime(2025, 6, 16, 0, 0, 0, 0, DateTimeKind.Local), "CS2 Summer Cup", new DateTime(2025, 6, 9, 0, 0, 0, 0, DateTimeKind.Local) });
+
+            migrationBuilder.InsertData(
+                table: "Matches",
+                columns: new[] { "MatchId", "BestRating", "MapId", "MatchDate", "Team1Score", "Team2Score", "TournamentId" },
+                values: new object[,]
+                {
+                    { 1, 1.25m, 1, new DateTime(2025, 7, 2, 15, 0, 0, 0, DateTimeKind.Unspecified), 16, 12, 1 },
+                    { 2, 1.1m, 2, new DateTime(2025, 7, 3, 18, 0, 0, 0, DateTimeKind.Unspecified), 10, 16, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PlayerMatches",
+                columns: new[] { "MatchId", "PlayerId", "MVPs", "Rating" },
+                values: new object[,]
+                {
+                    { 1, 1, 3, 1.25m },
+                    { 2, 1, 2, 1.1m }
                 });
 
             migrationBuilder.CreateIndex(
