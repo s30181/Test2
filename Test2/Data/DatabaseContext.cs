@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Tutorial11.Models;
+using Test2.Models;
 
-namespace Tutorial11.Data;
+namespace Test2.Data;
 
 public class DatabaseContext : DbContext
 {

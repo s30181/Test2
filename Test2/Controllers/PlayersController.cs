@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Test2.DTOs;
 using Test2.Exceptions;
-using Tutorial11.Models;
-using Tutorial11.Services;
+using Test2.Services;
+using Test2.Models;
 
-namespace Tutorial11.Controllers;
+namespace Test2.Controllers;
 
 
 [ApiController]

@@ -1,4 +1,6 @@
-﻿namespace Test2.DTOs;
+﻿using Newtonsoft.Json;
+
+namespace Test2.DTOs;
 
 public class ResponseDTO
 {
@@ -15,6 +17,8 @@ public class ResponseMatchDTO
     public string Tournament { get; set; }
     public string Map { get; set; }
     public DateTime Date { get; set; }
+    
+    [JsonProperty(PropertyName = "MVPs")]
     public int MVPs { get; set; }
     public decimal Rating { get; set; }
     public int Team1Score { get; set; }

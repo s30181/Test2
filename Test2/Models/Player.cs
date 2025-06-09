@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Tutorial11.Models;
+namespace Test2.Models;
 
 public class Player
 {

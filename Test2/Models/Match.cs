@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Tutorial11.Models;
+namespace Test2.Models;
 
 public class Match
 {

@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Test2.Data;
 using Test2.DTOs;
 using Test2.Exceptions;
-using Tutorial11.Data;
-using Tutorial11.Models;
+using Test2.Models;
 
-namespace Tutorial11.Services;
+namespace Test2.Services;
 
 public class PlayerService
 {
