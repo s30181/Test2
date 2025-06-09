@@ -32,7 +32,7 @@ public class PlayersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post(RequestDTO player)
+    public async Task<IActionResult> Post(RequestDto player)
     {
         try
         {

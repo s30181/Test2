@@ -16,7 +16,7 @@ public class PlayerService
     }
     
     
-    public async Task<ResponseDTO?> Get(int id)
+    public async Task<ResponseDto?> Get(int id)
     {
         var player = await _context.Players.Include(player => player.PlayerMatches)
             .ThenInclude(playerMatch => playerMatch.Match).ThenInclude(match => match.Tournament)
@@ -28,13 +28,13 @@ public class PlayerService
             return null;
         }
 
-        return new ResponseDTO()
+        return new ResponseDto()
         {
             PlayerId = player.PlayerId,
             FirstName = player.FirstName,
             LastName = player.LastName,
             BirthDate = player.BirthDate,
-            Matches = player.PlayerMatches.Select(playerMatch => new ResponseMatchDTO()
+            Matches = player.PlayerMatches.Select(playerMatch => new ResponseMatchDto()
             {
                 Tournament = playerMatch.Match.Tournament.Name,
                 Map = playerMatch.Match.Map.Name,
@@ -48,7 +48,7 @@ public class PlayerService
     }
     
 
-    public async Task Create(RequestDTO playerDto)
+    public async Task Create(RequestDto playerDto)
     {
         var matches = playerDto.Matches
             .Select(match => _context.Matches.FirstOrDefault(m => m.MatchId == match.MatchId))

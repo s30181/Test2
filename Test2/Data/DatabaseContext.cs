@@ -69,7 +69,8 @@ public class DatabaseContext : DbContext
                 TournamentId = 1,
                 BestRating = (decimal)1.25,
                 Team1Score = 16,
-                Team2Score = 12
+                Team2Score = 12,
+                MatchDate = new DateTime(2025, 07, 02, 15, 00, 00),
             },
             new Match()
             {
@@ -78,7 +79,8 @@ public class DatabaseContext : DbContext
                 TournamentId = 1,
                 BestRating = (decimal)1.10,
                 Team1Score = 10,
-                Team2Score = 16
+                Team2Score = 16,
+                MatchDate = new DateTime(2025, 07, 03, 18, 00, 00),
             }
         });
 
