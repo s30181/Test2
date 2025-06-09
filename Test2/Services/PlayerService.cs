@@ -56,7 +56,7 @@ public class PlayerService
 
         if (matches.Any(match => match == null))
         {
-            throw new MatchNotExists();
+            throw new MatchNotExistsException();
         }
 
 

@@ -40,7 +40,7 @@ public class PlayersController : ControllerBase
             
             return Created();
         }
-        catch (MatchNotExists e)
+        catch (MatchNotExistsException e)
         {
             return BadRequest(e.Message);
         }
